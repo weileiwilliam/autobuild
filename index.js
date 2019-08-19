@@ -3,7 +3,7 @@ var spawn = require('child_process').spawn;
 var createHandler = require('github-webhook-handler');
 
 // 下面填写的myscrect跟github webhooks配置一样，下一步会说；path是我们访问的路径
-var handler = createHandler({ path: '/', secret: 'forautobuild' });
+var handler = createHandler({ path: '/autobuild', secret: 'forautobuild' });
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
