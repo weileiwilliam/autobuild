@@ -4,6 +4,7 @@ type=${PATH##*-}
 
 echo $PATH $type
 cd $PATH
+ls
 git pull
 cnpm install
 if [ $type == "fontend" ]
