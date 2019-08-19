@@ -1,0 +1,14 @@
+{
+  "name": "autobuild",
+  "version": "1.0.0",
+  "description": "autobuild",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "github-webhook-handler": "^0.7.1"
+  }
+}
