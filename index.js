@@ -24,7 +24,8 @@ handler.on('push', function (event) {
 });
 
 function runCommand(cmd, args){
-    var child = spawn( cmd, args );
-    child.stdout.on('error', function(err) { console.log(err) });
+  console.log(cmd, args )
+  var child = spawn( cmd, args );
+  child.stdout.on('error', function(err) { console.log(err) });
 }
 
