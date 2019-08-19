@@ -6,7 +6,6 @@ var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/autobuild', secret: 'forautobuild' });
 
 http.createServer(function (req, res) {
-  console.log(req, res)
   handler(req, res, function (err) {
     res.statusCode = 404;
     res.end('no such location');
