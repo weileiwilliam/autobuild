@@ -3,14 +3,14 @@ var spawn = require('child_process').spawn;
 var createHandler = require('github-webhook-handler');
 
 // 下面填写的myscrect跟github webhooks配置一样，下一步会说；path是我们访问的路径
-var handler = createHandler({ path: '/autobuild', secret: '' });
+var handler = createHandler({ path: '/', secret: '' });
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
     res.statusCode = 404;
     res.end('no such location');
   })
-}).listen(6666);
+}).listen(3000);
 
 handler.on('error', function (err) {
   console.error('Error:', err.message)
