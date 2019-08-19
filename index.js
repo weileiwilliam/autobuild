@@ -6,10 +6,12 @@ var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/autobuild', secret: 'forautobuild' });
 
 http.createServer(function (req, res) {
-  handler(req, res, function (err) {
-    res.statusCode = 404;
-    res.end('no such location');
-  })
+  // console.log(req, res)
+  // handler(req, res, function (err) {
+  //   res.statusCode = 404;
+  //   res.end('no such location');
+  // })
+  runCommand('sh', ['./autobuild.sh', 'test-frontend']);
 }).listen(3000);
 
 handler.on('error', function (err) {
@@ -24,8 +26,8 @@ handler.on('push', function (event) {
 });
 
 function runCommand(cmd, args){
-  console.log(cmd, args )
   var child = spawn( cmd, args );
-  child.stdout.on('error', function(err) { console.log(err) });
+  child.stdout.on('data', data => { console.log(data) })
+  child.stdout.on('error', function(err) { console.log(err || 'fail') });
 }
 

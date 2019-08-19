@@ -3,8 +3,8 @@ type=${PATH##*-}
 
 echo $PATH
 
-cd $PATH
-git pull
+# cd $PATH
+# git pull
 # cnpm install
 # if [ $type == "fontend" ]
 # then
