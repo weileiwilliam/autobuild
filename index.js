@@ -19,6 +19,7 @@ handler.on('error', function (err) {
 // 监听到push事件的时候执行我们的自动化脚本
 handler.on('push', function (event) {
   const fileName = event.payload.repository.name
+  console.log(fileName, 'fileName')
   runCommand('sh', ['./autobuild.sh', fileName]);
 });
 
